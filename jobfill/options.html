@@ -1,0 +1,37 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>JobFill - Perfil</title>
+<style>
+  body{font:14px system-ui,sans-serif;max-width:760px;margin:24px auto;padding:0 16px;color:#111}
+  h1{font-size:20px} h2{font-size:15px;margin:22px 0 8px;border-bottom:1px solid #e5e7eb;padding-bottom:4px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  label{display:flex;flex-direction:column;font-size:12px;color:#555;gap:3px}
+  input,textarea,select{font:14px system-ui;padding:7px;border:1px solid #d1d5db;border-radius:6px}
+  textarea{min-height:90px;grid-column:1/-1} label.full{grid-column:1/-1}
+  button{padding:9px 16px;border:0;border-radius:8px;background:#2563eb;color:#fff;cursor:pointer;margin-right:8px}
+  button.sec{background:#e5e7eb;color:#111} #msg{margin-left:8px;color:#16a34a}
+</style>
+<h1>JobFill — tu perfil</h1>
+<p>Todo se guarda localmente en tu navegador (<code>chrome.storage.local</code>). Nada se envía a ningún servidor.</p>
+<form id="f">
+  <h2>Datos personales</h2>
+  <div class="grid" id="personal"></div>
+  <h2>Experiencia y preferencias</h2>
+  <div class="grid" id="work"></div>
+  <h2>Preguntas sí / no</h2>
+  <div class="grid" id="yn"></div>
+  <h2>Educación</h2>
+  <div class="grid" id="edu"></div>
+  <h2>Textos largos</h2>
+  <div class="grid" id="text"></div>
+  <h2>CV (archivo para subir automáticamente)</h2>
+  <p><input type="file" id="cvfile" accept=".pdf,.doc,.docx"> <span id="cvname"></span></p>
+  <p>
+    <button type="submit">Guardar</button>
+    <button type="button" class="sec" id="export">Exportar JSON</button>
+    <button type="button" class="sec" id="import">Importar JSON</button>
+    <input type="file" id="importfile" accept=".json" hidden>
+    <span id="msg"></span>
+  </p>
+</form>
+<script src="options.js"></script>
